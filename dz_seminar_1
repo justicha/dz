@@ -1,5 +1,4 @@
 def f(hospital, student, matching):
-    # Создаем обратное соответствие студент -> больница
     hospital_in = {}
     for name_hospital, name_student in matching.items():
         hospital_in[name_student] = name_hospital
@@ -22,7 +21,6 @@ def f(hospital, student, matching):
     print("Паросочетание устойчиво")
     return True
 
-# Данные из примера
 hospital = {
     'Atlanta': ['Xavier', 'Yolanda', 'Zeus'],
     'Boston': ['Yolanda', 'Xavier', 'Zeus'],
@@ -35,7 +33,6 @@ student = {
     'Zeus': ['Atlanta', 'Boston', 'Chicago']
 }
 
-# Проверяем паросочетание M = {A-Z, B-Y, C-X}
 matching = {'Atlanta': 'Zeus', 'Boston': 'Yolanda', 'Chicago': 'Xavier'}
 
 f(hospital, student, matching)
