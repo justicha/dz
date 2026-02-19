@@ -1,0 +1,41 @@
+def f(hospital, student, matching):
+    # Создаем обратное соответствие студент -> больница
+    hospital_in = {}
+    for name_hospital, name_student in matching.items():
+        hospital_in[name_student] = name_hospital
+    print(hospital_in)
+
+    for name_hospital, name_student in matching.items():
+        # Смотрим студентов, которых больница предпочитает больше текущего
+        for good_student in hospital[name_hospital]:
+            if good_student == name_student:
+                break
+                
+            # Если этот студент есть в другой больнице
+            elif good_student in hospital_in:
+                hospital_now = hospital_in[good_student]
+                # Проверяем, хочет ли студент эту больницу больше своей текущей
+                if student[good_student].index(name_hospital) < student[good_student].index(hospital_now):
+                    print(f"Неустойчивая пара: {name_hospital} и {good_student}")
+                    return False
+    
+    print("Паросочетание устойчиво")
+    return True
+
+# Данные из примера
+hospital = {
+    'Atlanta': ['Xavier', 'Yolanda', 'Zeus'],
+    'Boston': ['Yolanda', 'Xavier', 'Zeus'],
+    'Chicago': ['Xavier', 'Yolanda', 'Zeus']
+}
+
+student = {
+    'Xavier': ['Boston', 'Atlanta', 'Chicago'],
+    'Yolanda': ['Atlanta', 'Boston', 'Chicago'],
+    'Zeus': ['Atlanta', 'Boston', 'Chicago']
+}
+
+# Проверяем паросочетание M = {A-Z, B-Y, C-X}
+matching = {'Atlanta': 'Zeus', 'Boston': 'Yolanda', 'Chicago': 'Xavier'}
+
+f(hospital, student, matching)
