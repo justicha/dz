@@ -1,5 +1,4 @@
 def check_stability(hospital, student, matching):
-    # Словарь: студент -> больница
     assigned_to = {}
     for h, s in matching.items():
         assigned_to[s] = h
@@ -8,7 +7,7 @@ def check_stability(hospital, student, matching):
     all_students = set(student.keys())
     assigned_students = set(assigned_to.keys())
     unassigned_students = all_students - assigned_students
-    
+
     # Проверка первого типа неустойчивости
     for h, s in matching.items():
         for better_student in hospital[h]:
