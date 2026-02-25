@@ -3,7 +3,6 @@ def check_stability(hospital, student, matching):
     for h, s in matching.items():
         assigned_to[s] = h
     
-    # Множество всех студентов
     all_students = set(student.keys())
     assigned_students = set(assigned_to.keys())
     unassigned_students = all_students - assigned_students
@@ -28,7 +27,7 @@ def check_stability(hospital, student, matching):
     
     return "Паросочетание устойчиво"
 
-# Проверка
+
 hospital = {
     'Atlanta': ['Xavier', 'Yolanda', 'Zeus'],
     'Boston': ['Yolanda', 'Xavier', 'Zeus'],
@@ -41,7 +40,7 @@ student = {
     'Zeus': ['Atlanta', 'Boston', 'Chicago']
 }
 
+
 matching = {'Atlanta': 'Zeus', 'Boston': 'Yolanda', 'Chicago': 'Xavier'}
 
 print(check_stability(hospital, student, matching))
-# Выведет: "Неустойчивость 2 типа: Atlanta и Yolanda"
