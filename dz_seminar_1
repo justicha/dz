@@ -2,7 +2,6 @@ def f(hospital, student, matching):
     hospital_in = {}
     for name_hospital, name_student in matching.items():
         hospital_in[name_student] = name_hospital
-    print(hospital_in)
 
     for name_hospital, name_student in matching.items():
         for good_student in hospital[name_hospital]:
