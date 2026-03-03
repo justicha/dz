@@ -16,6 +16,5 @@ def f(n):
         if d <= i[0]:
             c += i[2]
             d = i[1]
-    return 'максимальный вес ' + str(c)
-
+    return f"максимальный вес = {c}"
 f(intervals)
