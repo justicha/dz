@@ -1,23 +1,23 @@
 #Взвешенное интервальное планирование
-intervals = [(0, 3, 3), (0, 2, 2), (3, 5, 4), (4, 7, 2), (0, 1, 3)]
+intervals = [(0, 3, 3),(6,8,2), (1, 2, 2), (3, 5, 4), (4, 7, 2), (0, 2, 3)]
 
 def f(n):
-    start_number = {}
-    c = 0
+    a = sorted(n)
+    k = 0
     
-    for i in n:
+    result = []
+    last_end = -1
+    
+    for i in a:
         start = i[0]
-        dlina = i[1] - i[0]
-        
-        if start not in start_number or dlina < start_number[start][1] - start_number[start][0]:
-            start_number[start] = i
-    
-    info = list(start_number.values())
-    print(info)
+        end = i[1]
+        if start >= last_end:
+            result.append(i)
+            last_end = end
 
-    for i in info:
-        c += i[2]
+    for i in result:
+        k += i[2]
     
-    return f"максимальный вес = {c}"
+    return f"максимальный вес = {k}"
 
 f(intervals)
