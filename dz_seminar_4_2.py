@@ -2,7 +2,6 @@ import random
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import shapiro
 
 def max_weight(n):
     a = []
