@@ -57,5 +57,4 @@ plt.xlabel("time")
 plt.ylabel("count")
 plt.show()
 
-_, p = shapiro(times)
 print(p)
