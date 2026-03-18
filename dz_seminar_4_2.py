@@ -56,5 +56,3 @@ plt.hist(times, bins=10)
 plt.xlabel("time")
 plt.ylabel("count")
 plt.show()
-
-print(p)
